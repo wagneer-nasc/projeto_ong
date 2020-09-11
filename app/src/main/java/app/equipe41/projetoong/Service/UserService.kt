@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface UserService {
-    @GET("/find")
+    @GET("/listar")
     fun getUser(): Call<List<User>>
 }
 

@@ -14,7 +14,7 @@ object RetrofitClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
-        return getInstance!!
+        return instance!!
     }
 
 }
