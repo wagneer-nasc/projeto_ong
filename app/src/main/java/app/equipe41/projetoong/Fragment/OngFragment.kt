@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import app.equipe41.projetoong.Adapter.OngAdapter
 import app.equipe41.projetoong.Models.User
 import app.equipe41.projetoong.R
 import kotlinx.android.extensions.LayoutContainer
@@ -28,11 +29,6 @@ class OngFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-
-
-
-
-
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
@@ -43,7 +39,8 @@ class OngFragment : Fragment() {
                 }
             }
     }
-    private lateinit var adapter : MyQuoteAdapter
+
+    private lateinit var adapter : OngAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,49 +52,22 @@ class OngFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         return inflater.inflate(R.layout.fragment_ong, container, false)
     }
-
+    //Um Metodo onActivityCreated sera de extrema importancia para escrever coigos em um fragment
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val items = listOf(
-            User("Premature optimization is the root of all evil"),
-            User("Any sufficiently advanced technology is indistinguishable from magic."),
-            User("Content 01"),
-            User("Content 02"),
-            User("Content 03"),
-            User("Content 04"),
-            User("Content 05")
-        )
+        val users = ArrayList<User>()
+        users.add(User("wagner"))
+        users.add(User("felipe"))
+        users.add(User("jonas"))
 
-        adapter = MyQuoteAdapter()
-        adapter.replaceItems(items)
+        adapter = OngAdapter(users)
+
+
         recyclerView.layoutManager = LinearLayoutManager(this.context)
         recyclerView.adapter = adapter
     }
 
-    class MyQuoteAdapter : RecyclerView.Adapter<MyQuoteAdapter.ViewHolder>() {
-        private var items = listOf<User>()
 
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.adapter_ong, parent, false)
-            return ViewHolder(view)
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            val item = items[position]
-            holder.itemView.title.text = item.nome
-        }
-
-        fun replaceItems(items: List<User>) {
-            this.items = items
-            notifyDataSetChanged()
-        }
-
-        override fun getItemCount(): Int = items.size
-
-        inner class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer
-    }
 
 }
