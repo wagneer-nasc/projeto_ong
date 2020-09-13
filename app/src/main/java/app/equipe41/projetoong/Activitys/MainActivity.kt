@@ -3,6 +3,7 @@ package app.equipe41.projetoong.Activitys
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.fragment.app.Fragment
 import app.equipe41.projetoong.Fragment.HomeFragment
 import app.equipe41.projetoong.Fragment.InfoFragment
@@ -12,6 +13,7 @@ import app.equipe41.projetoong.R
 import app.equipe41.projetoong.Retrofit.RetrofitClient
 import app.equipe41.projetoong.Service.UserService
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.adapter_ong.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,16 +1,22 @@
 package app.equipe41.projetoong.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.Button
+import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import app.equipe41.projetoong.Adapter.OngAdapter
+import app.equipe41.projetoong.Models.Ong
 import app.equipe41.projetoong.Models.User
 import app.equipe41.projetoong.R
 import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.adapter_ong.*
 import kotlinx.android.synthetic.main.adapter_ong.view.*
 import kotlinx.android.synthetic.main.fragment_ong.*
 
@@ -42,6 +48,7 @@ class OngFragment : Fragment() {
 
     private lateinit var adapter : OngAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -50,22 +57,25 @@ class OngFragment : Fragment() {
 
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
-        return inflater.inflate(R.layout.fragment_ong, container, false)
+     return inflater.inflate(R.layout.fragment_ong, container, false)
+
     }
     //Um Metodo onActivityCreated sera de extrema importancia para escrever coigos em um fragment
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val users = ArrayList<User>()
-        users.add(User("wagner"))
-        users.add(User("felipe"))
-        users.add(User("jonas"))
 
-        adapter = OngAdapter(users)
+        val ongs = ArrayList<Ong>()
+        ongs.add(Ong("1","wagner",""))
+        ongs.add(Ong("2","felipe",""))
+        ongs.add(Ong("3","jonas",""))
 
-
+        adapter = OngAdapter(ongs)
         recyclerView.layoutManager = LinearLayoutManager(this.context)
         recyclerView.adapter = adapter
+
+
+
     }
 
 

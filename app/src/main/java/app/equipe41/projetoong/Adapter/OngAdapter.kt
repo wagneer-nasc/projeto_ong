@@ -1,21 +1,25 @@
 package app.equipe41.projetoong.Adapter
 
-import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
-import app.equipe41.projetoong.Models.User
+import app.equipe41.projetoong.Activitys.DonationActivity
+import app.equipe41.projetoong.Activitys.MainActivity
+import app.equipe41.projetoong.Models.Ong
 import app.equipe41.projetoong.R
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
-import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.adapter_ong.view.*
 
-class OngAdapter (private val users: ArrayList<User>) : RecyclerView.Adapter<OngAdapter.ViewHolder>(){
+class OngAdapter (private val ongs: ArrayList<Ong>) : RecyclerView.Adapter<OngAdapter.ViewHolder>(){
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun pegarDados(user: User) {
-            itemView.title.text = user.nome
+        val itemButton: Button = itemView.findViewById(R.id.donation)
+
+       fun pegarDados(ong: Ong) {
+            itemView.title.text = ong.name
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,12 +29,24 @@ class OngAdapter (private val users: ArrayList<User>) : RecyclerView.Adapter<Ong
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = users[position]
+        val item = ongs[position]
         holder.pegarDados(item)
-      //  holder.itemView.title.text = item.nome
+
+        val context=holder.itemButton.context
+        holder.itemButton.setOnClickListener {
+                v: View -> Unit
+
+            val intent = Intent(context, DonationActivity::class.java).apply {
+                putExtra("id",item._id)
+            }
+            context.startActivity(intent)
+        }
+
+
+    }
+    override fun getItemCount(): Int {
+       return ongs.size
     }
 
-    override fun getItemCount(): Int {
-       return users.size
-    }
+
 }
