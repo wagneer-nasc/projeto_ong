@@ -46,6 +46,7 @@ class OngAdapter (private val ongs: ArrayList<Ong>) : RecyclerView.Adapter<OngAd
 
             val intent = Intent(context, DonationActivity::class.java).apply {
                 putExtra("id",item._id)
+                putExtra("nome_ong",item.nome_ong)
             }
             context.startActivity(intent)
         }

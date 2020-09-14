@@ -12,17 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="25dp">
+        android:padding="10dp">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/title_ong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Ong do Sucesso" />
 
         <EditText
-            android:id="@+id/nomeDoador"
+            android:id="@+id/nome_doador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -31,7 +31,7 @@
             android:padding="10dp" />
 
         <EditText
-            android:id="@+id/emailDoador"
+            android:id="@+id/email_doador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -40,7 +40,7 @@
             android:padding="10dp" />
 
         <EditText
-            android:id="@+id/cpfDoador"
+            android:id="@+id/cpf_doador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -49,7 +49,7 @@
             android:padding="10dp" />
 
         <EditText
-            android:id="@+id/valorDoacao"
+            android:id="@+id/valor_doacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -58,11 +58,14 @@
             android:padding="10dp" />
 
         <Button
-            android:id="@+id/salvarDoacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:onClick="donationOng"
             android:padding="10dp"
-            android:text="salvar Doação" />
+            android:text="salvar Doação"
+            android:textColor="@color/colorWhite" />
+
     </LinearLayout>
 
 

@@ -14,7 +14,7 @@
         android:padding="10dp">
 
         <EditText
-            android:id="@+id/nomeOng"
+            android:id="@+id/title_ong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -87,6 +87,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="registreOng"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"
             android:text="Salvar" />
 
 

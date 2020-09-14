@@ -7,11 +7,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import app.equipe41.projetoong.Models.Ong
-import app.equipe41.projetoong.Models.User
 import app.equipe41.projetoong.R
 import app.equipe41.projetoong.Retrofit.RetrofitClient
 import app.equipe41.projetoong.Service.OngService
-import app.equipe41.projetoong.Service.UserService
 import kotlinx.android.synthetic.main.activity_registre_ong.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,7 +23,7 @@ class RegistreOngActivity : AppCompatActivity() {
 
     fun registreOng(v: View) {
         val _id = ""
-        var nome = nomeOng.text.toString()
+        var nome = title_ong.text.toString()
         var telefone = telefoneOng.text.toString()
         var cpnj = cnpjOng.text.toString()
         var email = emailOng.text.toString()
