@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import app.equipe41.projetoong.Activitys.DonationActivity
+import app.equipe41.projetoong.Activitys.MainActivity
+import app.equipe41.projetoong.Activitys.RegisterVoluntarioActivity
 import app.equipe41.projetoong.Models.Ong
 import app.equipe41.projetoong.R
 import kotlinx.android.synthetic.main.activity_registre_ong.view.*
@@ -16,7 +18,12 @@ class OngAdapter (private val ongs: ArrayList<Ong>) : RecyclerView.Adapter<OngAd
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+      
+        val buttonVoluntario: Button = itemView.findViewById(R.id.buttonVoluntario)
+
+
         val itemButtonDonation: Button = itemView.findViewById(R.id.donation)
+
 
        fun pegarDados(ong: Ong) {
             itemView.title.text = ong.nome_ong
@@ -42,7 +49,14 @@ class OngAdapter (private val ongs: ArrayList<Ong>) : RecyclerView.Adapter<OngAd
             }
             context.startActivity(intent)
         }
-
+        val contextbutton =holder.buttonVoluntario.context
+        holder.buttonVoluntario.setOnClickListener { v: View ->
+            Unit
+            val intentbutton = Intent(contextbutton, RegisterVoluntarioActivity::class.java).apply {
+                putExtra("id", item._id)
+            }
+            contextbutton.startActivity(intentbutton)
+        }
 
     }
     override fun getItemCount(): Int {
