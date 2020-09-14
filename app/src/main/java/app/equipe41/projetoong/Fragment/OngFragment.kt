@@ -66,14 +66,11 @@ class OngFragment : Fragment() {
 
 
         val ongs = ArrayList<Ong>()
-        ongs.add(Ong("1","wagner",""))
-        ongs.add(Ong("2","felipe",""))
-        ongs.add(Ong("3","jonas",""))
+
 
         adapter = OngAdapter(ongs)
         recyclerView.layoutManager = LinearLayoutManager(this.context)
         recyclerView.adapter = adapter
-
 
 
     }
