@@ -15,10 +15,16 @@ import app.equipe41.projetoong.Adapter.OngAdapter
 import app.equipe41.projetoong.Models.Ong
 import app.equipe41.projetoong.Models.User
 import app.equipe41.projetoong.R
+import app.equipe41.projetoong.Retrofit.RetrofitClient
+import app.equipe41.projetoong.Service.OngService
+import app.equipe41.projetoong.Service.UserService
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.adapter_ong.*
 import kotlinx.android.synthetic.main.adapter_ong.view.*
 import kotlinx.android.synthetic.main.fragment_ong.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,19 +71,26 @@ class OngFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
 
-        val ongs = ArrayList<Ong>()
-        ongs.add(Ong("1","wagner",""))
-        ongs.add(Ong("2","felipe",""))
-        ongs.add(Ong("3","jonas",""))
+        RetrofitClient.getInstance.create(OngService::class.java)
+        .getOng().enqueue(object : Callback<ArrayList<Ong>> {
+            override fun onFailure(call: Call<ArrayList<Ong>>, t: Throwable) {
 
+
+            }
+            override fun onResponse(call: Call<ArrayList<Ong>>, response: Response<ArrayList<Ong>>) {
+                if (response.isSuccessful) {
+                    showData(response.body()!!)
+                }
+            }
+        })
+
+    }
+
+    private fun showData(ongs: ArrayList<Ong>) {
         adapter = OngAdapter(ongs)
         recyclerView.layoutManager = LinearLayoutManager(this.context)
         recyclerView.adapter = adapter
 
-
-
     }
-
-
 
 }

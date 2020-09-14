@@ -15,5 +15,10 @@
         android:icon="@drawable/ic_info_24"
         android:title="Info" />
 
+    <item
+        android:id="@+id/ic_person"
+        android:icon="@drawable/ic_person_24"
+        android:title="Perfil" />
+
 
 </menu>
