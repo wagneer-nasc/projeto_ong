@@ -72,10 +72,15 @@
         <EditText
             android:id="@+id/descricaoOng"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
+            android:lines="8"
+            android:minLines="6"
+            android:maxLines="10"
+            android:scrollbars="vertical"
             android:ems="10"
             android:hint="Decrição"
-            android:inputType="textPersonName" />
+            android:gravity="top"
+             />
 
         <Button
             android:id="@+id/button"
