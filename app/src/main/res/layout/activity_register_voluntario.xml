@@ -73,6 +73,7 @@
             android:id="@+id/salvarVoluntario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="registerVoluntario"
             android:padding="10dp"
             android:text="Salvar" />
 
