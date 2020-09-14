@@ -69,7 +69,11 @@ class OngFragment : Fragment() {
     //Um Metodo onActivityCreated sera de extrema importancia para escrever coigos em um fragment
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+      
+        val ongs = ArrayList<Ong>()
+        adapter = OngAdapter(ongs)
+        recyclerView.layoutManager = LinearLayoutManager(this.context)
+        recyclerView.adapter = adapter
 
         RetrofitClient.getInstance.create(OngService::class.java)
         .getOng().enqueue(object : Callback<ArrayList<Ong>> {
@@ -83,6 +87,7 @@ class OngFragment : Fragment() {
                 }
             }
         })
+
 
     }
 
