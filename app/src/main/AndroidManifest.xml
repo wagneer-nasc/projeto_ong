@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+        <activity android:name=".Activitys.RegisterVoluntarioActivity"></activity>
+
         <activity android:name=".Activitys.RegistreOngActivity"></activity>
+
         <activity android:name=".Activitys.DonationActivity" />
         <activity android:name=".Activitys.MainActivity">
             <intent-filter>
