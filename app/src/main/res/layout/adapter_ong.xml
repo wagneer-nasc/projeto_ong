@@ -61,7 +61,7 @@
                 android:textColor="@android:color/black" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/buttonVoluntario"
                 style="?attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

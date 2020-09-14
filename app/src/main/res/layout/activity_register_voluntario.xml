@@ -5,42 +5,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Activitys.DonationActivity">
+    tools:context=".Activitys.RegisterVoluntarioActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="25dp">
 
-        <TextView
-            android:id="@+id/textView4"
+        <EditText
+            android:id="@+id/nomeVoluntario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nome Voluntario"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/telefonevoluntario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Telefone"
+            android:inputType="textPersonName"
             android:padding="10dp"
-            android:text="Ong do Sucesso" />
+            android:phoneNumber="true" />
 
         <EditText
-            android:id="@+id/nomeDoador"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nome Doador"
-            android:inputType="textPersonName"
-            android:padding="10dp" />
-
-        <EditText
-            android:id="@+id/emailDoador"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="E-mail Doador"
-            android:inputType="textPersonName"
-            android:padding="10dp" />
-
-        <EditText
-            android:id="@+id/cpfDoador"
+            android:id="@+id/cpfVoluntario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -49,21 +42,39 @@
             android:padding="10dp" />
 
         <EditText
-            android:id="@+id/valorDoacao"
+            android:id="@+id/emailVoluntario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Valor Doação"
+            android:hint="Email"
             android:inputType="textPersonName"
             android:padding="10dp" />
 
+        <EditText
+            android:id="@+id/enderecoVoluntario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Endereço"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/numeroVoluntario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="N°"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:phoneNumber="false" />
+
         <Button
-            android:id="@+id/salvarDoacao"
+            android:id="@+id/salvarVoluntario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="salvar Doação" />
+            android:text="Salvar" />
+
     </LinearLayout>
-
-
 </ScrollView>
