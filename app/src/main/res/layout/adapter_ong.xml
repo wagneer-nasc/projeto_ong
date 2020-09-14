@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Ong do Sucesso"
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <ImageView
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="As Organizações Não Governamentais (ONGs) são entidades que não têm fins lucrativos e realizam diversos tipos de ações solidárias para públicos específicos"
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorBlack"
                 android:textSize="15sp" />
 
         </LinearLayout>
@@ -58,7 +58,7 @@
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_money_preto_24"
                 android:text="Doe Agora"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/colorPrimary" />
 
             <Button
                 android:id="@+id/buttonVoluntario"
@@ -68,7 +68,7 @@
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_favorite_preto_24"
                 android:text="Seja Voluntario"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/colorPrimary" />
         </LinearLayout>
     </LinearLayout>
 
