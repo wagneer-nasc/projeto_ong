@@ -14,4 +14,7 @@ interface OngService {
     @POST("/ongs")
     fun postOng(@Body ong: Ong): Call<Ong>
 
+    @POST("")
+    fun loginOng(@Body email: String, senha: String):Call<String>
+
 }
