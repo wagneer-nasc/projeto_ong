@@ -19,6 +19,8 @@ class RegistreOngActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registre_ong)
+        supportActionBar?.title = "Cadastre sua Ong."
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun registreOng(v: View) {
@@ -67,6 +69,9 @@ class RegistreOngActivity : AppCompatActivity() {
                     }
             }
         })
+    }
+    fun openLogin(v: View) {
+        startActivity(Intent(this.baseContext,LoginActivity::class.java))
     }
 }
 
