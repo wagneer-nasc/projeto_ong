@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.title = "Login da Ong."
-        supportActionBar?.setDisplayHomeAsUpEnabled(true) 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
 
