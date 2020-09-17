@@ -13,12 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activitys.MainActivity"/>
-        <activity android:name=".Activitys.LoginActivity"
+        <activity android:name=".Activitys.PanelActivity"
+            android:parentActivityName=".Activitys.MainActivity"/>
+        <activity android:name=".Activitys.MainActivity" />
+        <activity
+            android:name=".Activitys.LoginActivity"
             android:parentActivityName=".Activitys.MainActivity"
             tools:targetApi="jelly_bean" />
         <activity android:name=".Activitys.RegisterVoluntarioActivity" />
-        <activity android:name=".Activitys.RegistreOngActivity" android:parentActivityName=".Activitys.MainActivity"
+        <activity
+            android:name=".Activitys.RegistreOngActivity"
+            android:parentActivityName=".Activitys.MainActivity"
             tools:targetApi="jelly_bean" />
         <activity android:name=".Activitys.DonationActivity" />
         <activity android:name=".Activitys.SplashScreenActivit">

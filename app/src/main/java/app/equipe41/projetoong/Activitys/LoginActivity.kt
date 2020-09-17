@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import app.equipe41.projetoong.Models.Auth
 import app.equipe41.projetoong.Models.Ong
 import app.equipe41.projetoong.R
 import app.equipe41.projetoong.Retrofit.RetrofitClient
+import app.equipe41.projetoong.Service.AuthService
 import app.equipe41.projetoong.Service.OngService
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
@@ -25,38 +27,28 @@ class LoginActivity : AppCompatActivity() {
 
 
     fun login(v: View) {
-        val email = email_login.text.toString()
-        val password = password_login.text.toString()
+        val auth = Auth()
+        auth.email= email_login.text.toString()
+        auth.senha= password_login.text.toString()
+        startActivity(Intent(baseContext, PanelActivity::class.java))
 
-        if(validateForm(email,password)) {
-            callLogin(email,password)
-        }
+      /*  if(validateForm(auth)) {
+            callLogin(auth)
+        }*/
     }
 
-    private fun validateForm(email: String, password: String): Boolean {
-        if(email.isEmpty() || password.isEmpty()) {
+    private fun validateForm(auth: Auth): Boolean {
+        if(auth.email.isEmpty() || auth.senha.isEmpty()) {
             Toast.makeText(applicationContext, "Todos os campos são obrigatórios!", Toast.LENGTH_SHORT).show()
             return false
         }
         return true
     }
 
-    private fun callLogin(email:String, password: String) {
-        RetrofitClient.getInstance.create(OngService::class.java)
-            .loginOng(email,password)
-            .enqueue(object : Callback<String> {
-                override fun onFailure(call: Call<String>, t: Throwable) {
-                    Log.d("error", "onFailure: ${t.message}")
-                }
-                override fun onResponse(call: Call<String>, response: Response<String>) {
-                    if (response.isSuccessful) {
-                        Log.d("sucesso", "onResponse: ${response.body()}")
+    private fun callLogin(auth: Auth) {
 
-                        Toast.makeText(applicationContext, "Ong Criada com Sucesso!", Toast.LENGTH_SHORT).show()
-                        //startActivity(Intent(baseContext, MainActivity::class.java))
-                    }
-                }
-            })
+        startActivity(Intent(baseContext, PanelActivity::class.java))
+
     }
      fun openRegisterOng(v: View) {
         startActivity(Intent(this.baseContext,RegistreOngActivity::class.java))

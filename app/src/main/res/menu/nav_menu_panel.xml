@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ic_donation_panel"
+        android:icon="@drawable/ic_money_white_24"
+        android:title="Doações" />
+
+    <item
+        android:id="@+id/ic_voluntary"
+        android:icon="@drawable/ic_voluntary_white_24"
+        android:title="Voluntários" />
+
+    <item
+        android:id="@+id/ic_msg"
+        android:icon="@drawable/ic__msg_24"
+        android:title="Menssagens" />
+
+
+</menu>
