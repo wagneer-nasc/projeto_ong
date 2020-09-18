@@ -4,5 +4,4 @@ class Auth {
     var email: String = ""
     var senha: String = ""
 
-
 }
