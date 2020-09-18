@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="app.equipe41.projetoong">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,13 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".Activitys.RegisterVoluntarioActivity"></activity>
-
-        <activity android:name=".Activitys.RegistreOngActivity"></activity>
-
+        <activity android:name=".Activitys.PanelActivity"
+            android:parentActivityName=".Activitys.MainActivity"/>
+        <activity android:name=".Activitys.MainActivity" />
+        <activity
+            android:name=".Activitys.LoginActivity"
+            android:parentActivityName=".Activitys.MainActivity"
+            tools:targetApi="jelly_bean" />
+        <activity android:name=".Activitys.RegisterVoluntarioActivity" />
+        <activity
+            android:name=".Activitys.RegistreOngActivity"
+            android:parentActivityName=".Activitys.MainActivity"
+            tools:targetApi="jelly_bean" />
         <activity android:name=".Activitys.DonationActivity" />
-        <activity android:name=".Activitys.MainActivity">
+        <activity android:name=".Activitys.SplashScreenActivit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

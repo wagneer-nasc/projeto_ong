@@ -1,26 +1,16 @@
 package app.equipe41.projetoong.Fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.Button
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import app.equipe41.projetoong.Adapter.OngAdapter
 import app.equipe41.projetoong.Models.Ong
-import app.equipe41.projetoong.Models.User
 import app.equipe41.projetoong.R
 import app.equipe41.projetoong.Retrofit.RetrofitClient
 import app.equipe41.projetoong.Service.OngService
-import app.equipe41.projetoong.Service.UserService
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.adapter_ong.*
-import kotlinx.android.synthetic.main.adapter_ong.view.*
 import kotlinx.android.synthetic.main.fragment_ong.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -69,11 +59,6 @@ class OngFragment : Fragment() {
     //Um Metodo onActivityCreated sera de extrema importancia para escrever coigos em um fragment
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-      
-        val ongs = ArrayList<Ong>()
-        adapter = OngAdapter(ongs)
-        recyclerView.layoutManager = LinearLayoutManager(this.context)
-        recyclerView.adapter = adapter
 
         RetrofitClient.getInstance.create(OngService::class.java)
         .getOng().enqueue(object : Callback<ArrayList<Ong>> {

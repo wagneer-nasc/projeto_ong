@@ -7,15 +7,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import app.equipe41.projetoong.Models.Donation
-import app.equipe41.projetoong.Models.Ong
 import app.equipe41.projetoong.R
 import app.equipe41.projetoong.Retrofit.RetrofitClient
 import app.equipe41.projetoong.Service.DonationService
-import app.equipe41.projetoong.Service.OngService
 import kotlinx.android.synthetic.main.activity_donation.*
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class DonationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,16 +24,15 @@ class DonationActivity : AppCompatActivity() {
     }
 
     fun donationOng (v: View) {
-        val _id = ""
-        val id_ong = intent.getStringExtra("id").toString()
+
+        val id = intent.getStringExtra("id").toString()
         val nome = nome_doador.text.toString()
         val email = email_doador.text.toString()
         val cpf = cpf_doador.text.toString()
         val valor = valor_doacao.text.toString()
+        val donation = Donation("",nome,email,cpf,valor)
 
-        val donation = Donation(_id, nome, email, cpf, valor.toDouble(), id_ong)
-
-        RetrofitClient.getInstance.create(DonationService::class.java).postDonation(donation)
+        RetrofitClient.getInstance.create(DonationService::class.java).postDonation(id,donation)
             .enqueue(object : retrofit2.Callback<Donation> {
 
                 override fun onFailure(call: Call<Donation>, t: Throwable) {
@@ -55,7 +51,7 @@ class DonationActivity : AppCompatActivity() {
                     }
                 }
             })
-
-
     }
+
+
 }
