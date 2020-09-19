@@ -17,6 +17,7 @@ class DonationAdapter (private val donations: ArrayList<Donation>) : RecyclerVie
            itemView.nome_donor_adapter.text = donation.nome_doador
            itemView.email_donor_adapter.text = donation.email_doador
            itemView.value_donor_adapter.text = donation.valor_doacao
+           itemView.date_donor_adapter.text = donation.createdAT.toString()
 
        }
     }

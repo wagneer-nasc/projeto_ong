@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
                         Log.d("sucesso", "onResponse:${response.body()!!}")
                         val authentic: Auth = response.body()!!
                         MyPreference.setToken(baseContext, authentic)
-                        openPanelActivity()
+                        openMainActivity()
 
                     } else {
                         Toast.makeText(baseContext, "Email ou senha invalido!", Toast.LENGTH_SHORT)
@@ -73,9 +73,9 @@ class LoginActivity : AppCompatActivity() {
         startActivity(Intent(this.baseContext, RegistreOngActivity::class.java))
     }
 
-    private fun openPanelActivity() {
+    private fun openMainActivity() {
         val id = MyPreference.getIdOngLegate(applicationContext)
-        startActivity(Intent(baseContext, PanelActivity::class.java).apply {
+        startActivity(Intent(baseContext, MainActivity::class.java).apply {
             putExtra(ID_ONG, id)
         })
     }

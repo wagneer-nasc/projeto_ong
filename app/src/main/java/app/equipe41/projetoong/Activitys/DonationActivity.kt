@@ -13,6 +13,7 @@ import app.equipe41.projetoong.Service.DonationService
 import kotlinx.android.synthetic.main.activity_donation.*
 import retrofit2.Call
 import retrofit2.Response
+import java.util.*
 
 class DonationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,7 @@ class DonationActivity : AppCompatActivity() {
         val email = email_doador.text.toString()
         val cpf = cpf_doador.text.toString()
         val valor = valor_doacao.text.toString()
-        val donation = Donation("",nome,email,cpf,valor)
+        val donation = Donation("",nome,email,cpf,valor, Date())
 
         RetrofitClient.getInstance.create(DonationService::class.java).postDonation(id,donation)
             .enqueue(object : retrofit2.Callback<Donation> {

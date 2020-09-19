@@ -17,13 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="6dp"
             android:text="Doação" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/textView15"
@@ -43,7 +44,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/textView20"
@@ -63,7 +65,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/textView22"
@@ -83,7 +86,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/textView24"
@@ -93,7 +97,7 @@
                 android:text="Data :" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/date_donor_adapter"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

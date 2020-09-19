@@ -29,8 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         validatingToken(baseContext)
-
-        val homeFragment = HomeFragment()
+         val homeFragment = HomeFragment()
         val infoFragment = InfoFragment()
         val ongFragment = OngFragment()
         makeCurrentFragment(homeFragment)
@@ -88,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun validatingToken(context: Context) {
-        var auth = Auth()
+        val auth = Auth()
         auth.token = MyPreference.getToken(context)
 
         RetrofitClient.getInstance.create(AuthService::class.java).authValidate(auth)

@@ -1,6 +1,5 @@
 package app.equipe41.projetoong.Activitys
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,10 +7,9 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import app.equipe41.projetoong.Fragment.DonationFragment
+import app.equipe41.projetoong.Models.Auth
 import app.equipe41.projetoong.R
 import app.equipe41.projetoong.SharedPreference.MyPreference
-import app.equipe41.projetoong.Util.Constants
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_panel.*
 
 class PanelActivity : AppCompatActivity() {
