@@ -4,7 +4,6 @@ import java.math.BigDecimal
 
 data class Donation(
     val _id: String,
-    //val id_ong: String,
     val nome_doador: String,
     val email_doador: String,
     val cpf: String,

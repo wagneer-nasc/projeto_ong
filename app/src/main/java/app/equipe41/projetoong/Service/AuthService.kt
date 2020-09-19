@@ -12,5 +12,8 @@ interface AuthService {
     @POST("/signin")
     fun authOng(@Body auth: Auth): Call<Auth>
 
+    @POST("/validateToken")
+    fun authValidate(@Body auth: Auth): Call<Auth>
+
 }
 
