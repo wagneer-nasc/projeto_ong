@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import app.equipe41.projetoong.Models.Donation
+import app.equipe41.projetoong.Models.Ong
 import app.equipe41.projetoong.R
 import app.equipe41.projetoong.Retrofit.RetrofitClient
 import app.equipe41.projetoong.Service.DonationService
@@ -24,16 +25,28 @@ class DonationActivity : AppCompatActivity() {
         title_ong.text = "Ong Beneficiada: ${nome}"
     }
 
-    fun donationOng (v: View) {
-
-        val id = intent.getStringExtra("id").toString()
+    fun donationOng(v: View) {
         val nome = nome_doador.text.toString()
         val email = email_doador.text.toString()
         val cpf = cpf_doador.text.toString()
         val valor = valor_doacao.text.toString()
-        val donation = Donation("",nome,email,cpf,valor, Date())
+        val donation = Donation("", nome, email, cpf, valor, Date())
 
-        RetrofitClient.getInstance.create(DonationService::class.java).postDonation(id,donation)
+        if (validateForm(donation)) {
+            saveDonation(donation)
+        } else {
+            Toast.makeText(
+                applicationContext,
+                "Todos os campos são obrigatórios!",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+    }
+
+    private fun saveDonation(donation: Donation) {
+        val id = intent.getStringExtra("id").toString()
+        RetrofitClient.getInstance.create(DonationService::class.java).postDonation(id, donation)
             .enqueue(object : retrofit2.Callback<Donation> {
 
                 override fun onFailure(call: Call<Donation>, t: Throwable) {
@@ -42,16 +55,31 @@ class DonationActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<Donation>, response: Response<Donation>) {
                     if (response.isSuccessful) {
-                        Log.d("sucesso", "onResponse: ${response.code()}")
-
-                        val toast = Toast.makeText(applicationContext, "Doaão feita com muita alegria!", Toast.LENGTH_SHORT)
-                        toast.show()
-
+                        Toast.makeText(
+                            applicationContext,
+                            "Doaão feita com muita alegria!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         startActivity(Intent(baseContext, MainActivity::class.java))
-
+                    } else {
+                        Toast.makeText(
+                            applicationContext,
+                            "Error ${response.errorBody()}!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             })
+    }
+
+    private fun validateForm(donation: Donation): Boolean {
+        var valido = true
+        if (donation.nome_doador.isEmpty() || donation.cpf.isEmpty() || donation.email_doador.isEmpty() ||
+            donation.valor_doacao.isEmpty()
+        ) {
+            valido = false
+        }
+        return valido
     }
 
 
