@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
-    app:cardElevation="6dp">
+    app:cardElevation="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,21 +18,22 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Ong do Sucesso"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="10dp"
-                app:srcCompat="@android:drawable/btn_star_big_on" />
+                app:srcCompat="@drawable/ongs" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="Ong do Sucesso"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/descricaoAdapter"
@@ -40,7 +41,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="As Organizações Não Governamentais (ONGs) são entidades que não têm fins lucrativos e realizam diversos tipos de ações solidárias para públicos específicos"
-                android:textColor="@color/colorBlack"
                 android:textSize="15sp" />
 
         </LinearLayout>
@@ -58,7 +58,10 @@
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_money_preto_24"
                 android:text="Doe Agora"
-                android:textColor="@color/colorPrimary" />
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/buttonVoluntario"
@@ -66,9 +69,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_favorite_preto_24"
+                android:drawableLeft="@drawable/ic_voluntary_black_24"
                 android:text="Seja Voluntario"
-                android:textColor="@color/colorPrimary" />
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 

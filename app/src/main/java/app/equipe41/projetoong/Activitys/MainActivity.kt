@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         validatingToken(baseContext)
-         val homeFragment = HomeFragment()
+        val homeFragment = HomeFragment()
         val infoFragment = InfoFragment()
         val ongFragment = OngFragment()
         makeCurrentFragment(homeFragment)

@@ -18,26 +18,33 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="6dp"
-            android:text="Doação" />
+            android:text="Doação"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="5dp">
+            android:padding="3dp">
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Nome:" />
+                android:padding="2dp"
+                android:text="Nome:"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/nome_donor_adapter"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:padding="2dp"
                 android:text="Wagner Nascimento Farias" />
 
         </LinearLayout>
@@ -45,20 +52,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp">
+            android:padding="3dp">
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Email:" />
+                android:padding="2dp"
+                android:text="Email:"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/email_donor_adapter"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:padding="2dp"
                 android:text="wagneer@live.com" />
         </LinearLayout>
 
@@ -66,20 +77,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="5dp">
+            android:padding="3dp">
 
             <TextView
                 android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Valor:" />
+                android:padding="2dp"
+                android:text="Valor:"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/value_donor_adapter"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:padding="2dp"
                 android:text="R$ 200,00" />
         </LinearLayout>
 
@@ -87,20 +102,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="5dp">
+            android:padding="3dp">
 
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Data :" />
+                android:padding="2dp"
+                android:text="Data :"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/date_donor_adapter"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:padding="2dp"
                 android:text="17/09/2020" />
         </LinearLayout>
     </LinearLayout>

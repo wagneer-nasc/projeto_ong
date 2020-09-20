@@ -66,13 +66,18 @@ class RegistreOngActivity : AppCompatActivity() {
 
                         Toast.makeText(applicationContext, "Ong Criada com Sucesso!", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(baseContext, MainActivity::class.java))
+                    }else {
+                        Toast.makeText(applicationContext, "Falha ao criar Ong: ${response.errorBody()}", Toast.LENGTH_SHORT).show()
                     }
             }
         })
     }
     fun openLogin(v: View) {
-        startActivity(Intent(this.baseContext,LoginActivity::class.java))
+        startActivity(Intent(this.baseContext, LoginActivity::class.java))
     }
+
+
+
 }
 
 
