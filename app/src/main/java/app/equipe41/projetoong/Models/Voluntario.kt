@@ -7,6 +7,5 @@ data class Voluntario (
     val cpf_voluntario: String,
     val email: String,
     val endereco: String,
-    val numero: Int,
-    val id_ong: String
+    val numero: Int
 )

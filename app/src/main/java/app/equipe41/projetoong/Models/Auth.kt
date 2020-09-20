@@ -6,5 +6,4 @@ class Auth {
     var token: String = ""
     var id: String = ""
 
-
 }

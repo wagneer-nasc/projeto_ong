@@ -9,8 +9,8 @@ import retrofit2.http.Path
 
 interface VoluntarioService {
 
-    @POST("/voluntarios")
-    fun  postVoluntario(@Body voluntario: Voluntario): Call<Voluntario>
+    @POST("/voluntarios/{id}")
+    fun postVoluntario(@Path("id")id:String, @Body voluntario: Voluntario) : Call<Voluntario>
 
 
     @GET("/voluntarios")
