@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import app.equipe41.projetoong.Fragment.DonationFragment
+import app.equipe41.projetoong.Fragment.VoluntaryFragment
 import app.equipe41.projetoong.Models.Auth
 import app.equipe41.projetoong.R
 import app.equipe41.projetoong.SharedPreference.MyPreference
@@ -19,6 +20,7 @@ class PanelActivity : AppCompatActivity() {
         supportActionBar?.title = "Painel da Ong."
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val voluntaryFragment = VoluntaryFragment()
         val donationFragment = DonationFragment()
         makeCurrentFragment(donationFragment)
 
@@ -26,6 +28,7 @@ class PanelActivity : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.ic_donation_panel -> makeCurrentFragment(donationFragment)
+                R.id.ic_voluntary -> makeCurrentFragment(voluntaryFragment)
 
             }
             true

@@ -40,7 +40,8 @@ class OngAdapter (private val ongs: ArrayList<Ong>) : RecyclerView.Adapter<OngAd
         val item = ongs[position]
         holder.pegarDados(item)
 
-        val context=holder.itemButtonDonation.context
+        val context = holder.itemButtonDonation.context
+
         holder.itemButtonDonation.setOnClickListener {
                 v: View -> Unit
 
@@ -50,11 +51,13 @@ class OngAdapter (private val ongs: ArrayList<Ong>) : RecyclerView.Adapter<OngAd
             }
             context.startActivity(intent)
         }
-        val contextbutton =holder.buttonVoluntario.context
+
+        val contextbutton = holder.buttonVoluntario.context
         holder.buttonVoluntario.setOnClickListener { v: View ->
             Unit
             val intentbutton = Intent(contextbutton, RegisterVoluntarioActivity::class.java).apply {
                 putExtra("id", item._id)
+                putExtra("nome_ong",item.nome_ong)
             }
             contextbutton.startActivity(intentbutton)
         }

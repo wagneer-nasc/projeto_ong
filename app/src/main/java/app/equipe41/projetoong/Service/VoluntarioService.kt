@@ -1,5 +1,6 @@
 package app.equipe41.projetoong.Service
 
+import app.equipe41.projetoong.Models.Donation
 import app.equipe41.projetoong.Models.Voluntario
 import retrofit2.Call
 import retrofit2.http.Body
@@ -12,7 +13,6 @@ interface VoluntarioService {
     @POST("/voluntarios/{id}")
     fun postVoluntario(@Path("id")id:String, @Body voluntario: Voluntario) : Call<Voluntario>
 
-
-    @GET("/voluntarios")
-    fun getVoluntario(): Call<ArrayList<Voluntario>>
+    @GET("/voluntarios/{id}")
+    fun getVoluntary(@Path("id")id: String) : Call<ArrayList<Voluntario>>
 }

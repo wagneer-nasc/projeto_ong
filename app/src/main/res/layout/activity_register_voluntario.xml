@@ -11,7 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="25dp">
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/title_ong_voluntary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/nomeVoluntario"
@@ -73,9 +83,11 @@
             android:id="@+id/salvarVoluntario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:onClick="registerVoluntario"
             android:padding="10dp"
-            android:text="Salvar" />
+            android:text="Salvar"
+            android:textColor="@color/colorWhite" />
 
     </LinearLayout>
 </ScrollView>

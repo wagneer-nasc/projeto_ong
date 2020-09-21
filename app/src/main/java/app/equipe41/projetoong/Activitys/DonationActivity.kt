@@ -21,6 +21,8 @@ class DonationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_donation)
 
+        supportActionBar?.title = "Fazendo uma boa ação."
+
         val nome = intent.getStringExtra("nome_ong").toString()
         title_ong.text = "Ong Beneficiada: ${nome}"
     }

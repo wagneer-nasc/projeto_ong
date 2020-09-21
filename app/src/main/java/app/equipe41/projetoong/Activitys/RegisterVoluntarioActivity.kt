@@ -11,25 +11,32 @@ import app.equipe41.projetoong.R
 import app.equipe41.projetoong.Retrofit.RetrofitClient
 import app.equipe41.projetoong.Service.VoluntarioService
 import kotlinx.android.synthetic.main.activity_register_voluntario.*
+import kotlinx.android.synthetic.main.activity_registre_ong.*
 import retrofit2.Call
 import retrofit2.Response
+import java.util.*
 
 class RegisterVoluntarioActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_voluntario)
 
+        supportActionBar?.title = "Fazendo uma boa ação."
+
+        val nome = intent.getStringExtra("nome_ong").toString()
+        title_ong_voluntary.text = "Ong Beneficiada: ${nome}"
+
     }
 
     fun registerVoluntario(v: View) {
         val nome = nomeVoluntario.text.toString()
-        val telefone = telefonevoluntario.text.toString()
+        val telephone = telefonevoluntario.text.toString()
         val cpf = cpfVoluntario.text.toString()
         val email = emailVoluntario.text.toString()
-        val endereco = enderecoVoluntario.text.toString()
-        val numero = numeroVoluntario.text.toString().toInt()
+        val endeared = enderecoVoluntario.text.toString()
+        val numero = if (numeroVoluntario.text.toString() == "") 0 else numeroOng.text.toString().toInt()
         val id_ong = intent.getStringExtra("id").toString()
-        val volunrario = Voluntario("",nome,telefone,cpf,email,endereco,numero)
+        val volunrario = Voluntario("",nome,telephone,cpf,email,endeared,numero,Date())
 
         if(validateForm(volunrario)) {
             savevoluntario(volunrario, id_ong)
