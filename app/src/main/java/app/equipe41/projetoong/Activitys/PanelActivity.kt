@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import app.equipe41.projetoong.Fragment.AlterOngFragment
 import app.equipe41.projetoong.Fragment.DonationFragment
 import app.equipe41.projetoong.Fragment.VoluntaryFragment
 import app.equipe41.projetoong.Models.Auth
@@ -22,6 +23,7 @@ class PanelActivity : AppCompatActivity() {
 
         val voluntaryFragment = VoluntaryFragment()
         val donationFragment = DonationFragment()
+        val alterOngFragment = AlterOngFragment()
         makeCurrentFragment(donationFragment)
 
         bottom_navigation_panel.setOnNavigationItemSelectedListener {
@@ -29,6 +31,7 @@ class PanelActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.ic_donation_panel -> makeCurrentFragment(donationFragment)
                 R.id.ic_voluntary -> makeCurrentFragment(voluntaryFragment)
+                R.id.ic_edit -> makeCurrentFragment(alterOngFragment)
 
             }
             true

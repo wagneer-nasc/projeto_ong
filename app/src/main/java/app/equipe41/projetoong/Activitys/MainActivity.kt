@@ -53,13 +53,17 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-    var isValidToken = ""
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        var isValidToken = MyPreference.getLogged(baseContext)
+
+        Log.d("sucesso", "onResponse: ${isValidToken}")
+
         if (isValidToken == "true") menu?.setGroupVisible(R.id.group_logado, true)
         else menu?.setGroupVisible(R.id.group_deslogado, true)
         return super.onPrepareOptionsMenu(menu)
@@ -89,7 +93,6 @@ class MainActivity : AppCompatActivity() {
     private fun validatingToken(context: Context) {
         val auth = Auth()
         auth.token = MyPreference.getToken(context)
-
         RetrofitClient.getInstance.create(AuthService::class.java).authValidate(auth)
             .enqueue(object : Callback<Auth> {
                 override fun onFailure(call: Call<Auth>, t: Throwable) {
@@ -98,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<Auth>, response: Response<Auth>) {
                     if (response.isSuccessful) {
-                        isValidToken = response.body()!!.token
+                        MyPreference.setLogged(baseContext,response.body()!!.token)
                     }
                 }
             })

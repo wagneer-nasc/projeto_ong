@@ -5,4 +5,5 @@ object Constants {
     const val MY_PREFERENCE = "bd"
     const val TOKEN_KEY = "token"
     const val ID_ONG = "id_ong"
+    const val LOGGED = "logged"
 }

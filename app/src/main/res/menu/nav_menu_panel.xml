@@ -11,9 +11,9 @@
         android:title="Voluntários" />
 
     <item
-        android:id="@+id/ic_msg"
-        android:icon="@drawable/ic__msg_24"
-        android:title="Menssagens" />
+        android:id="@+id/ic_edit"
+        android:icon="@drawable/ic_edit__write_24"
+        android:title="Alterar Dados" />
 
 
 </menu>

@@ -33,4 +33,21 @@ object MyPreference {
             context.getSharedPreferences(Constants.MY_PREFERENCE, Context.MODE_PRIVATE)
                 .edit().clear().apply()
     }
+
+    fun setLogged(context: Context, legato: String) {
+        val preference =
+            context.getSharedPreferences(Constants.MY_PREFERENCE, Context.MODE_PRIVATE)
+                .edit()
+        preference.apply {
+            putString(Constants.LOGGED, legato)
+        }.apply()
+    }
+
+    fun getLogged(context: Context): String {
+        return context.getSharedPreferences(
+            Constants.MY_PREFERENCE,
+            Context.MODE_PRIVATE
+        ).getString(Constants.LOGGED, null).toString()
+    }
+
 }
