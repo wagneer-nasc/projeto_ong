@@ -34,23 +34,23 @@ class RegisterVoluntarioActivity : AppCompatActivity() {
         val cpf = cpfVoluntario.text.toString()
         val email = emailVoluntario.text.toString()
         val endeared = enderecoVoluntario.text.toString()
-        val numero = if (numeroVoluntario.text.toString() == "") 0 else numeroOng.text.toString().toInt()
-        val id_ong = intent.getStringExtra("id").toString()
-        val volunrario = Voluntario("",nome,telephone,cpf,email,endeared,numero,Date())
+        val numberAddress = if (numeroVoluntario.text.toString() == "") 0 else numeroVoluntario.text.toString().toInt()
+        val idOng = intent.getStringExtra("id").toString()
+        val voluntaries = Voluntario("",nome,telephone,cpf,email,endeared,numberAddress,Date())
 
-        if(validateForm(volunrario)) {
-            savevoluntario(volunrario, id_ong)
+        if(validateForm(voluntaries)) {
+            savevoluntario(voluntaries, idOng)
         }else {
             Toast.makeText(applicationContext, "Todos os campos são obrigatórios!", Toast.LENGTH_SHORT).show()
         }
     }
-    private fun validateForm(voluntario: Voluntario): Boolean {
+    private fun validateForm(voluntaries: Voluntario): Boolean {
         var valido = true
-        if(voluntario.numero == 0) {
+        if(voluntaries.numero == 0) {
             valido = false
         }
-        if(voluntario.nome_voluntario.isEmpty() || voluntario.cpf_voluntario.isEmpty() || voluntario.email.isEmpty() ||
-            voluntario.telefone_voluntario.isEmpty() || voluntario.endereco.isEmpty()) {
+        if(voluntaries.nome_voluntario.isEmpty() || voluntaries.cpf_voluntario.isEmpty() || voluntaries.email.isEmpty() ||
+            voluntaries.telefone_voluntario.isEmpty() || voluntaries.endereco.isEmpty()) {
             valido = false
         }
         return valido

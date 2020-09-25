@@ -75,9 +75,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="N°"
-            android:inputType="textPersonName"
             android:padding="10dp"
-            android:phoneNumber="false" />
+            android:inputType="number" />
 
         <Button
             android:id="@+id/salvarVoluntario"
