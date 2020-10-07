@@ -32,7 +32,7 @@ class RegistreOngActivity : AppCompatActivity() {
         val email = emailOng.text.toString()
         val password = senhaOng.text.toString()
         val address = enderecoOng.text.toString()
-        val numberAddress = if (numeroOng.text.toString() == "") 0 else numeroOng.text.toString().toInt()
+        val numberAddress = numeroOng.text.toString()
         val description = descricaoOng.text.toString()
 
         val ong = Ong(id, nome, telephone, cpnj, email, description, password, address, numberAddress)
@@ -44,12 +44,9 @@ class RegistreOngActivity : AppCompatActivity() {
     }
     private fun validateForm(ong: Ong): Boolean {
         var valido = true
-        if(ong.numero == 0) {
-            valido = false
-        }
         if(ong.cnpj_ong.isEmpty() || ong.nome_ong.isEmpty() || ong.email.isEmpty() ||
             ong.descricao.isEmpty() || ong.senha.isEmpty() || ong.endereco.isEmpty() ||
-            ong.telefone_ong.isEmpty()) {
+            ong.telefone_ong.isEmpty() || ong.numero.isEmpty()) {
             valido = false
         }
         return valido

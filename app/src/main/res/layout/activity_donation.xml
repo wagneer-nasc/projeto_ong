@@ -52,7 +52,7 @@
             android:inputType="textPersonName"
             android:padding="10dp" />
 
-        <EditText
+        <com.blackcat.currencyedittext.CurrencyEditText
             android:id="@+id/valor_doacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

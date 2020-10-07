@@ -19,6 +19,7 @@ tools:context=".Fragment.AlterOngFragment">
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Nome"
+        android:enabled="false"
         android:inputType="textPersonName" />
 
     <EditText
@@ -35,6 +36,7 @@ tools:context=".Fragment.AlterOngFragment">
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="CNPJ"
+        android:enabled="false"
         android:inputType="number" />
 
     <EditText
@@ -50,7 +52,18 @@ tools:context=".Fragment.AlterOngFragment">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:enabled="false"
         android:hint="Senha"
+        android:inputType="textPassword"
+       />
+
+    <EditText
+        android:id="@+id/senha_ong_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nova Senha"
+        android:maxLength="10"
         android:inputType="text" />
 
     <EditText
@@ -60,7 +73,6 @@ tools:context=".Fragment.AlterOngFragment">
         android:ems="10"
         android:hint="Endereço"
         android:inputType="textPersonName" />
-
     <EditText
         android:id="@+id/numero_ong_edit"
         android:layout_width="match_parent"
@@ -89,6 +101,8 @@ tools:context=".Fragment.AlterOngFragment">
         android:background="@color/colorPrimary"
         android:text="Salvar"
         android:textColor="@color/colorWhite" />
+
+
 
 
 </LinearLayout>

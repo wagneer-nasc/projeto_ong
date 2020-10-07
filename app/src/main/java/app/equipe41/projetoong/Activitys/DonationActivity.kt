@@ -25,13 +25,16 @@ class DonationActivity : AppCompatActivity() {
 
         val nome = intent.getStringExtra("nome_ong").toString()
         title_ong.text = "Ong Beneficiada: ${nome}"
+       val locale = Locale("pt","BR")
+        valor_doacao.locale = locale
+
     }
 
     fun donationOng(v: View) {
         val nome = nome_doador.text.toString()
         val email = email_doador.text.toString()
         val cpf = cpf_doador.text.toString()
-        val valor = valor_doacao.text.toString()
+        val valor = valor_doacao.rawValue.toString()
         val donation = Donation("", nome, email, cpf, valor, Date())
 
         if (validateForm(donation)) {

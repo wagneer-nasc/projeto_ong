@@ -34,7 +34,7 @@ class RegisterVoluntarioActivity : AppCompatActivity() {
         val cpf = cpfVoluntario.text.toString()
         val email = emailVoluntario.text.toString()
         val endeared = enderecoVoluntario.text.toString()
-        val numberAddress = if (numeroVoluntario.text.toString() == "") 0 else numeroVoluntario.text.toString().toInt()
+        val numberAddress =  numeroVoluntario.text.toString()
         val idOng = intent.getStringExtra("id").toString()
         val voluntaries = Voluntario("",nome,telephone,cpf,email,endeared,numberAddress,Date())
 
@@ -46,11 +46,9 @@ class RegisterVoluntarioActivity : AppCompatActivity() {
     }
     private fun validateForm(voluntaries: Voluntario): Boolean {
         var valido = true
-        if(voluntaries.numero == 0) {
-            valido = false
-        }
+
         if(voluntaries.nome_voluntario.isEmpty() || voluntaries.cpf_voluntario.isEmpty() || voluntaries.email.isEmpty() ||
-            voluntaries.telefone_voluntario.isEmpty() || voluntaries.endereco.isEmpty()) {
+            voluntaries.telefone_voluntario.isEmpty() || voluntaries.endereco.isEmpty() || voluntaries.numero.isEmpty()) {
             valido = false
         }
         return valido
@@ -66,7 +64,7 @@ class RegisterVoluntarioActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         Log.d("sucesso", "onResponse: ${response.body()}")
 
-                        Toast.makeText(applicationContext, "Ong Criada com Sucesso!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, "Voluntário inscrito com sucesso!", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(baseContext, MainActivity::class.java))
                     }
                 }

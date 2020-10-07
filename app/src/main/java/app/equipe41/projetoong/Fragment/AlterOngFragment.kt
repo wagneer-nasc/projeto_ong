@@ -9,13 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import app.equipe41.projetoong.Activitys.MainActivity
-import app.equipe41.projetoong.Activitys.PanelActivity
 import app.equipe41.projetoong.Models.Ong
 import app.equipe41.projetoong.R
 import app.equipe41.projetoong.Retrofit.RetrofitClient
 import app.equipe41.projetoong.Service.OngService
+import app.equipe41.projetoong.SharedPreference.MyPreference
 import app.equipe41.projetoong.Util.Constants
-import kotlinx.android.synthetic.main.activity_registre_ong.*
 import kotlinx.android.synthetic.main.fragment_alter_ong.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -93,7 +92,7 @@ class AlterOngFragment : Fragment() {
             senha_ong_edit.setText(body.senha)
             endereco_ong_edit.setText(body.endereco)
             descricao_ong_edit.setText(body.descricao)
-//          numero_ong_edit.setText(body.numero)
+            numero_ong_edit.setText(body.numero)
         }
     }
 
@@ -103,13 +102,19 @@ class AlterOngFragment : Fragment() {
         val telephone = telefone_ong_edit.text.toString()
         val cpnj = cnpj_ong_edit.text.toString()
         val email = email_ong_edit.text.toString()
-        val password = senha_ong_edit.text.toString()
-        val address = descricao_ong_edit.text.toString()
-        val numberAddress = if (numero_ong_edit.text.toString() == "") 0 else numeroOng.text.toString().toInt()
+        var password = senha_ong_new.text.toString()
+        val address = endereco_ong_edit.text.toString()
+        val numberAddress = numero_ong_edit.text.toString()
         val description = descricao_ong_edit.text.toString()
+        val passwordActual = senha_ong_edit.text.toString()
+
+        if(password.isEmpty()) {
+            password = passwordActual
+        }
 
         if(id != null ) {
-            val ong = Ong(id, nome, telephone, cpnj, email, description, password, address, numberAddress)
+            val ong = Ong(id ,nome,telephone,cpnj,email,description,password,address,numberAddress)
+
             if(validateForm(ong)) {
                 saveOng(ong)
             }else {
@@ -120,35 +125,39 @@ class AlterOngFragment : Fragment() {
     }
     private fun validateForm(ong: Ong): Boolean {
         var valido = true
-        if(ong.numero == 0) {
-            valido = false
-        }
+
         if(ong.cnpj_ong.isEmpty() || ong.nome_ong.isEmpty() || ong.email.isEmpty() ||
             ong.descricao.isEmpty() || ong.senha.isEmpty() || ong.endereco.isEmpty() ||
-            ong.telefone_ong.isEmpty()) {
+            ong.telefone_ong.isEmpty() || ong.numero.isEmpty()) {
             valido = false
         }
         return valido
     }
     private fun saveOng(ong: Ong) {
-        RetrofitClient.getInstance.create(OngService::class.java).postOng(ong) // alterar para o update
+        RetrofitClient.getInstance.create(OngService::class.java).updateOng(ong._id,ong)
             .enqueue(object : Callback<Ong> {
 
                 override fun onFailure(call: Call<Ong>, t: Throwable) {
-                    Log.d("error", "onFailure: ${t.message}")
+                    Log.d("error", "onResponse: ${t.message}")
                 }
                 override fun onResponse(call: Call<Ong>, response: Response<Ong>) {
-                    if (response.isSuccessful) {
-                        Log.d("sucesso", "onResponse: ${response.body()}")
 
-                        Toast.makeText(context, "Alteração feita com Sucesso!", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(context, PanelActivity::class.java))
+                    if(response.isSuccessful) {
+                        returnMain()
                     }else {
                         Toast.makeText(context, "Falha ao alterar Ong: ${response.errorBody()}", Toast.LENGTH_SHORT).show()
                     }
                 }
             })
     }
+
+    private fun returnMain() {
+
+        context?.let { MyPreference.deleteToken(it) }
+        Toast.makeText(context, "Alteração feita com Sucesso!", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(context, MainActivity::class.java))
+    }
+
 
 }
 

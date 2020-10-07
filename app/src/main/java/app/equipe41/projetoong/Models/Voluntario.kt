@@ -9,6 +9,6 @@ data class Voluntario (
     val cpf_voluntario: String,
     val email: String,
     val endereco: String,
-    val numero: Int,
+    val numero: String,
     val createdAT: Date
 )

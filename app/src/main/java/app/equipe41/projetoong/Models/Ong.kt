@@ -12,7 +12,7 @@ data class Ong(
     val descricao: String,
     val senha: String,
     val endereco: String,
-    val numero: Int
+    val numero: String
 
 
 )
